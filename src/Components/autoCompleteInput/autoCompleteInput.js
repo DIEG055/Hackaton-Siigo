@@ -9,7 +9,7 @@ const  AutoCompleteInput = () => {
     <AutoComplete
       style={{ width: '100%' }}
       dataSource={dataSource}
-      placeholder="try to type `b`"
+      placeholder="Nombre Empresa"
       filterOption={(inputValue, option) =>
         option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
       }

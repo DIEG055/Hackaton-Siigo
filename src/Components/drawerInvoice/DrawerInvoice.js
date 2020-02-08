@@ -1,81 +1,42 @@
-import React, { useState } from "react";
-import { Drawer, List, Avatar, Divider, Col, Row } from "antd";
+import React from 'react'
+import { Divider,Col,Row,Drawer } from 'antd';
 
-import "antd/dist/antd.css";
+const DrawerInvoice = (props) => {
 
-const pStyle = {
-  fontSize: 16,
-  color: "rgba(0,0,0,0.85)",
-  lineHeight: "24px",
-  display: "block",
-  marginBottom: 16
-};
-
-const DescriptionItem = ({ title, content }) => (
-  <div
-    style={{
-      fontSize: 14,
-      lineHeight: "22px",
-      marginBottom: 7,
-      color: "rgba(0,0,0,0.65)"
-    }}
-  >
-    <p
-      style={{
-        marginRight: 8,
-        display: "inline-block",
-        color: "rgba(0,0,0,0.85)"
-      }}
-    >
-      {title}:
-    </p>
-    {content}
-  </div>
-);
-
-const ItemDetails = () => {
-  const [visible, setVisible] = useState(false);
-
-  const showDrawer = () => {
-    setVisible(true);
-  };
-
-  const onClose = () => {
-    setVisible(false);
-  };
-
-  return (
-    <div>
-      <List
-        dataSource={[
-          {
-            name: "Lily"
-          },
-          {
-            name: "Lily"
-          }
-        ]}
-        bordered
-        renderItem={item => (
-          <List.Item
-            key={item.id}
-            actions={[
-              <a onClick={showDrawer} key={`a-${item.id}`}>
-                View Profile
-              </a>
-            ]}
+    const {onClose, visible, data} = props;
+    
+    const DescriptionItem = ({ title, content }) => (
+        <div
+          style={{
+            fontSize: 14,
+            lineHeight: "22px",
+            marginBottom: 7,
+            color: "rgba(0,0,0,0.65)"
+          }}
+        >
+          <p
+            style={{
+              marginRight: 8,
+              display: "inline-block",
+              color: "rgba(0,0,0,0.85)"
+            }}
           >
-            <List.Item.Meta
-              avatar={
-                <Avatar src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png" />
-              }
-              title={<a href="https://ant.design/index-cn">{item.name}</a>}
-              description="Progresser XTech"
-            />
-          </List.Item>
-        )}
-      />
-      <Drawer
+            {title}:
+          </p>
+          {content}
+        </div>
+      );
+
+    const pStyle = {
+        fontSize: 16,
+        color: "rgba(0,0,0,0.85)",
+        lineHeight: "24px",
+        display: "block",
+        marginBottom: 16
+      };
+
+    return(
+        <Drawer
         width={640}
         placement="right"
         closable={false}
@@ -117,9 +78,9 @@ const ItemDetails = () => {
           </Col>
         </Row>
         <Divider />
-
+        
         <Divider />
-        <p style={pStyle}>Contacts</p>
+        <p style={pStyle}>Invoice</p>
         <Row>
           <Col span={12}>
             <DescriptionItem title="Email" content="AntDesign@example.com" />
@@ -134,15 +95,15 @@ const ItemDetails = () => {
               title="Github"
               content={
                 <a href="http://github.com/ant-design/ant-design/">
-                  github.com/ant-design/ant-design/
+                  INVOICE
                 </a>
               }
             />
           </Col>
         </Row>
       </Drawer>
-    </div>
-  );
-};
+       
+    )
+}
 
-export default ItemDetails;
+export default  DrawerInvoice;

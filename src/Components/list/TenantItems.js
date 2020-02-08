@@ -7,16 +7,16 @@ import './index.css';
 
 const data = [
   {
-    title: 'Ant Design Title 1',
+    title: 'Siigo 1',
   },
   {
-    title: 'Ant Design Title 2',
+    title: 'Siigo 2',
   },
   {
-    title: 'Ant Design Title 3',
+    title: 'Siigo 3',
   },
   {
-    title: 'Ant Design Title 4',
+    title: 'Siigo 4',
   },
 ];
 
@@ -27,10 +27,14 @@ const TenantItems = () => {
     dataSource={data}
     renderItem={item => (
       <List.Item>
+        <p>
+         
+        </p>
         <List.Item.Meta
           avatar={<Avatar icon="user" />}
           title={<a href="https://ant.design">{item.title}</a>}
-          description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+          
+          description="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum eius quos eum quasi unde nesciunt, vitae obcaecati vero ipsam nobis"
         />
       </List.Item>
     )}

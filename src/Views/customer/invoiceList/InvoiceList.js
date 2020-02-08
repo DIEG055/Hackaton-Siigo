@@ -1,22 +1,21 @@
 import React from "react";
 import "antd/dist/antd.css";
 import Layout from "../../../Components/common/Common";
-import ProductItems from "../../../Components/list/ProductItems";
+import InvoiceItems from "../../../Components/list/InvoiceItems";
 import Details from "../../../Components/tenantDetails/tenantDetails";
-const ProductList = () => {
+const InvoiceList = () => {
   
   return (
     <Layout>
-        
       <div style={{ background: '#fff', padding: 24, margin: '25px 50px' }}>
-        <Details/>
+        {/* <Details/> */}
       </div>
       
       <div style={{ background: '#fff', padding: 24,margin: '25px 50px', minHeight: 280 }}>
-        <ProductItems/>
+        <InvoiceItems/>
       </div>
     </Layout>
   )    
 };
 
-export default ProductList;
+export default InvoiceList;

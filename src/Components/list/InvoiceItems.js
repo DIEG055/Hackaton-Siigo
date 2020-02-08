@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "antd/dist/antd.css";
-import { List, Avatar, Icon } from "antd";
+import { List, Avatar, Icon, Skeleton  } from "antd";
 import {
   Form,
   InputNumber,
@@ -11,7 +11,8 @@ import {
   Row,
   Drawer
 } from "antd";
-import DrawerDetails from "../../Components/drawerDetails/DrawerDetails";
+import DrawerInvoice from "../drawerInvoice/DrawerInvoice";
+import "./index.css"
 
 const { Option } = Select;
 
@@ -63,40 +64,26 @@ const ProductItems = props => {
         }
         renderItem={item => (
           <List.Item
-            key={item.title}
-            actions={[
-              <Button type="primary">Agregar</Button>,
-              <Button type="primary" onClick={showDrawer}>
-                Detalles
-              </Button>,
-              <InputNumber
-                min={1}
-                defaultValue={0}
-                onChange={e => onChangeNumber(e, item.title)}
-              />
-            ]}
-            extra={
-              <img
-                width={272}
-                alt="logo"
-                src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-              />
-            }
-          >
+          actions={[<a key="list-loadmore-edit" onClick={showDrawer}>Detalles</a>]}
+        >
+          <Skeleton avatar title={false} loading={item.loading} active>
             <List.Item.Meta
-              avatar={<Avatar src={item.avatar} />}
-              title={<a href={item.href}>{item.title}</a>}
-              description={item.description}
+              avatar={
+                <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+              }
+              title={<a href="https://ant.design">{item.title}</a>}
+              description="Ant Design, a design language for background applications, is refined by Ant UED Team"
             />
-            {item.content}
-          </List.Item>
+            <div>content</div>
+          </Skeleton>
+        </List.Item>
         )}
       />
-      <DrawerDetails
+      <DrawerInvoice
         data={[]}
         onClose={onClose}
         visible={visible}
-      ></DrawerDetails>
+      ></DrawerInvoice>
     </div>
   );
 };
