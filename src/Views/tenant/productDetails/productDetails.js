@@ -1,7 +1,9 @@
 import React from "react";
 import "antd/dist/antd.css";
 import LayoutDesign from "../../../Components/common/Common";
+import UploadFiles from "../../../Components/uploadFiles/UploadFiles";
 import { PageHeader, Button, Descriptions } from "antd";
+
 
 const productDetails = () => {
   return (
@@ -42,6 +44,7 @@ const productDetails = () => {
           </Descriptions>
         </PageHeader>
       </div>
+      <UploadFiles></UploadFiles>
     </LayoutDesign>
   );
 };
