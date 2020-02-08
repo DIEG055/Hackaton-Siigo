@@ -1,14 +1,16 @@
 import React  from 'react'
-import TenantController from './data/controllers/TenantController';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import store from './redux/store/store';
+import Routes from './routes/Routes';
 
 function App() {
   return (
-    <div className="App">
-        <button onClick={()=>{
-          const tenantController = new TenantController();
-          tenantController.updateTenant("name",{options:"heloeww jocker"});
-          }} >click</button>
-    </div>
+    <Provider store={store} >
+      <Router>
+        <Routes/>
+      </Router>
+    </Provider>
   );
 }
 
