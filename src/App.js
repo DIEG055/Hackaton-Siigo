@@ -1,24 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import CustomerController from './data/controllers/CustomerController';
 
 function App() {
+
+  const [value,setInput] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        <label>
+          Name:
+          <input type="text" value={value} onChange={(e)=>setInput(e.target.value)} />
+        </label>
+        <input type="submit" value="Submit" onClick={()=>{
+          const customerController = new CustomerController();
+          {/* customerController.createCustomer(value,{ciudad:"bogota",place:true}); */}
+          {/* customerController.updateCustomer(value,{place:false}) */}
+          console.log(customerController.readCustomer(value))
+        }} />
     </div>
   );
 }
