@@ -8,12 +8,12 @@ function CustomerRoutes() {
 
     const dispatch = useDispatch();
 
-
+    //Math.floor(Math.random()*10)
 
     return (
         <Switch>
             <Route exact path="/" >
-                <button onClick={() => { dispatch(addItemCart(Math.floor(Math.random()*10), 3)) }}>add</button>
+                <button onClick={() => { dispatch(addItemCart(2, 3)) }}>add</button>
                 <button onClick={() => { dispatch(deleteItemCart(2)) }}>delete</button>
             </Route>
             <Route exact path="/products" > </Route>

@@ -1,7 +1,6 @@
 import { ADD_ITEM_CART,DELETE_ITEM_CART } from "../types/cart"
 
 export const addItemCart = (item,amount) =>{
-    console.log(amount)
     return{
         type:ADD_ITEM_CART,
         payload:{item:item,amount:amount}
