@@ -1,9 +1,13 @@
 import React  from 'react'
+import TenantController from './data/controllers/TenantController';
 
 function App() {
   return (
     <div className="App">
-        <h1>Hackathon Siigo</h1>
+        <button onClick={()=>{
+          const tenantController = new TenantController();
+          tenantController.updateTenant("name",{options:"heloeww jocker"});
+          }} >click</button>
     </div>
   );
 }
