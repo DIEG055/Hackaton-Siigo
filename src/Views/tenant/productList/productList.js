@@ -7,7 +7,9 @@ const MyProductList = () => {
   
   return (
     <Layout>
-    
+    <div style={{ background: '#fff', padding: 24,margin: '25px 50px', minHeight: 280 }}>
+        
+      </div>
       <div style={{ background: '#fff', padding: 24,margin: '25px 50px', minHeight: 280 }}>
         <Myproducts/>
       </div>

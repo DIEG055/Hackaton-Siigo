@@ -1,47 +1,21 @@
 import React, { useState } from "react";
 import "antd/dist/antd.css";
-import { List, Avatar, Icon, Skeleton  } from "antd";
-import {
-  Form,
-  InputNumber,
-  Select,
-  Button,
-  Divider,
-  Col,
-  Row,
-  Drawer
-} from "antd";
+import { List, Avatar,Select,  Skeleton  } from "antd";
 import DrawerInvoice from "../drawerInvoice/DrawerInvoice";
 import "./index.css"
 
-const { Option } = Select;
-
-const listData = [];
-
-for (let i = 0; i < 23; i++) {
-  listData.push({
-    href: "http://ant.design",
-    title: `ant design part ${i}`,
-    avatar: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
-    description:
-      "Ant Design, a design language for background applications, is refined by Ant UED Team.",
-    content:
-      "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
-  });
-}
-
-const onChangeNumber = (id, e) => {
-  console.log(id);
-  console.log(e);
-};
 
 const ProductItems = props => {
+  const listData = props.data;
   const [visible, setVisible] = useState(false);
- 
-  const showDrawer = () => {
+  const [itemSelected, setItemSelected] = useState({});
+
+  const showDrawer = (item) => {
+    setItemSelected(item);
     setVisible(true);
   };
   const onClose = () => {
+    setItemSelected({});
     setVisible(false);
   };
 
@@ -57,30 +31,26 @@ const ProductItems = props => {
           pageSize: 3
         }}
         dataSource={listData}
-        footer={
-          <div>
-            <b>ant design</b> footer part
-          </div>
-        }
+
         renderItem={item => (
           <List.Item
-          actions={[<a key="list-loadmore-edit" onClick={showDrawer}>Detalles</a>]}
+          actions={[<a key="list-loadmore-edit" onClick={() => showDrawer(item)}>Detalles</a>]}
         >
           <Skeleton avatar title={false} loading={item.loading} active>
             <List.Item.Meta
               avatar={
                 <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
               }
-              title={<a href="https://ant.design">{item.title}</a>}
-              description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+              title={<a href="https://ant.design">{item.tenant}</a>}
             />
-            <div>content</div>
+            <div>{item.date}</div>
+            <div>{item.quantity}</div>
           </Skeleton>
         </List.Item>
         )}
       />
       <DrawerInvoice
-        data={[]}
+        data={itemSelected}
         onClose={onClose}
         visible={visible}
       ></DrawerInvoice>
