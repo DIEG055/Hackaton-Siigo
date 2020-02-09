@@ -22,7 +22,7 @@ const cart = (state=initialState,action) => {
                 items:items
             }
         case DELETE_ITEM_CART:
-            const {[action.payload]: deleted,...newState} = state;
+            const {[action.payload]: deleted,...newState} = state.items;
             return{
                 ...state,
                 items:newState

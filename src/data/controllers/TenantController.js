@@ -30,4 +30,18 @@ export default class TenantController {
         return fire.firestore().doc(direction).delete();
     }
 
+    readAllTenant = async() =>{
+        let direction = '/tenant/';
+        return fire.firestore().collection(direction).get().then(
+            querySnapshot=>{
+                
+                querySnapshot.forEach(
+                    doc=>{
+                        console.log(doc.data());
+                    }
+                )
+            }
+        )
+    }
+
 }

@@ -14,10 +14,7 @@ function CustomerRoutes() {
 
     return (
         <Switch>
-            <Route exact path="/home"component={Home} >
-                {/* <button onClick={() => { dispatch(addItemCart(Math.floor(Math.random()*10), 3)) }}>add</button>
-                <button onClick={() => { dispatch(deleteItemCart(2)) }}>delete</button> */}
-            </Route>
+            <Route exact path="/" > <Home/> </Route>
             <Route exact path="/tenant/:id" component={ProductList}/>
             <Route exact path="/cart" component={Cart}/>
             <Route exact path="/invoices" component={InvoiceList}/>

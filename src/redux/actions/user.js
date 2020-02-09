@@ -1,4 +1,5 @@
 import { FETCH_USERS_SUCCESS, FETCH_USERS_FAILURE, FETCH_USERS_REQUEST } from "../types/user"
+import UserController from "../../data/controllers/userController"
 
 export const userSuccess = users =>{
     return{
@@ -23,9 +24,8 @@ export const usersRequest = () =>{
 export const fetchUsers = () =>{
     return async (dispatch) =>{
         dispatch(usersRequest())
-        /* let userController = new UserController(); */
-        /* const user = userController.getUserId(); */
-        const user = {id:111, name:"nombre"}
+        let userController = new UserController();
+        const user = userController.getCurrentUser();
         if(user){
             try{
                 /* const userData = await userController.getTipoUsuario(user.uid); */

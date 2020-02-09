@@ -12,12 +12,11 @@ import InvoiceList from '../Views/customer/invoiceList/InvoiceList'
 function TentantRoutes(){
     return(
         <Switch>
-            <Route exact path="/home" component={HomeTenant}></Route>
+            <Route exact path="/" > <HomeTenant/> </Route>
             <Route exact path="/products" component={MyProductList}></Route>
             <Route exact path="/product/:id" component={ProductDetails}></Route>
             <Route exact path="/invoices" component={InvoiceList}></Route>
             <Route exact path="/product/new" component={NewProduct}></Route>
-            <Route component={HomeTenant} />
         </Switch>
     )
 }

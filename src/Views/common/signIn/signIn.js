@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Icon, Input, Button, Checkbox, Typography   } from 'antd';
 import "antd/dist/antd.css";
 import "./index.css";
+import AuthControlller from "../../../data/controllers/authController";
 
 
 
@@ -16,6 +17,8 @@ class NormalLoginForm extends React.Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+        const authController = new AuthControlller();
+        authController.authWithEmailPassword(values.username, values.password);
       }
     });
   };

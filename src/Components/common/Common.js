@@ -24,7 +24,7 @@ const Common = props => {
           style={{ lineHeight: "64px" }}
         >
           <Menu.Item key="1">
-            <Link to="/home"><Icon type="search" />Buscar</Link>
+            <Link to="/"><Icon type="search" />Buscar</Link>
           </Menu.Item>
           <Menu.Item key="2">
             <Link to="/invoices"><Icon type="file" />Facturas</Link>
