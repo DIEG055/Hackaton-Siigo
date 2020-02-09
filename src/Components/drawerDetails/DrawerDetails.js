@@ -4,6 +4,7 @@ import { Divider,Col,Row,Drawer } from 'antd';
 const DrawerDetails = (props) => {
 
     const {onClose, visible, data} = props;
+
     
     const DescriptionItem = ({ title, content }) => (
         <div
@@ -44,7 +45,7 @@ const DrawerDetails = (props) => {
         visible={visible}
       >
         <p style={{ ...pStyle, marginBottom: 24 }}>User Profile</p>
-        <p style={pStyle}>Personal</p>
+        <p style={pStyle}>{data.name}</p>
         <Row>
           <Col span={12}>
             <DescriptionItem title="Full Name" content="Lily" />

@@ -13,10 +13,13 @@ function Routes(){
         },[]
     )
 
-    const customer = useSelector(state=>state.user.user);
-    const tenant = null;
+    // const customer = useSelector(state=>state.user.user);
+    // const tenant = null;
+    const tenant = useSelector(state=>state.user.user);
+    const customer = null;
 
     if(customer){
+        // return <CommonRoutes/>
         return <RoutesCustomer/>
     }else if(tenant){
         return <RoutesTenant/>

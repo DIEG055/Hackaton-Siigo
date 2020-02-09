@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Row, Col, Button } from "antd";
 import LayoutDesign from "../../../Components/common/Common";
 import CartItems from "../../../Components/list/CartItems";
@@ -8,6 +8,7 @@ import "antd/dist/antd.css";
 const Cart = () => {
 
   const [visible,setVisible] = useState(false);
+  const [cartItems,setCartItems] = useState([]);
 
   const showModal = () => {
     setVisible(true)
@@ -23,6 +24,29 @@ const Cart = () => {
     setVisible(false)
   };
 
+  const getCartItems = () =>{
+    const data = [
+      {
+        title: 'producto 1',
+      },
+      {
+        title: 'producto 2',
+      },
+      {
+        title: 'producto 3',
+      },
+      {
+        title: 'producto 4',
+      },
+    ];
+    setCartItems(data)
+  }
+
+  useEffect(()=> {
+    getCartItems()
+  }
+  ,[])
+
   return (
     <React.Fragment>
       <LayoutDesign>
@@ -36,7 +60,7 @@ const Cart = () => {
                 margin: "25px 50px"
               }}
             >
-              <CartItems />
+              <CartItems data ={cartItems} />
             </div>
           </Col>
           <Col span={12}>
@@ -54,7 +78,7 @@ const Cart = () => {
         </Row>
       </LayoutDesign>
       <Button type="primary" onClick={showModal}>
-          Open Modal
+          Modal cuando compra sea realizada
         </Button>
       <InvoiceModal
        showModal = {showModal}
